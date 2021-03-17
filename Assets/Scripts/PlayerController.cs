@@ -4,46 +4,44 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public Transform Target;
     public Rigidbody rb;
-    public Transform aimTarget;
-    public float playerSpeed = 3f;
+    public float playerSpeed = 2000f;
     public float racketPower  = 10f;
 
+    public int ballHeight = 50;
+
+    WaitForSeconds myWait;
     bool isHitting;
+    Vector3 aimTargetMouse = Vector3.one;
 
     public Transform ball; // The ball pos
 
-    Vector3 aimTargetInitalPos; // inital pos of the aiming gameObj which is the center of the opposite court
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
     }
     void Update()
     {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast (ray, out hit)) {
+                // Find the direction to move in
+                Debug.DrawLine(transform.position, hit.point);
+                Target.position = hit.point;
+            }
+
         float h = Input.GetAxisRaw("Horizontal"); // Get horizontal axis of the keyboard (Might need to change if we need to use the arrow keys)
         float v = Input.GetAxisRaw("Vertical"); // Get vertical axis of the keyboard (Might need to change if we need to use the arrow keys)
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetMouseButtonDown(0))
         {
             isHitting = true;
+            // myWait = new WaitForSeconds(3000);
+            
         }
-        else if (Input.GetKeyUp(KeyCode.LeftArrow))
-        {
-            isHitting = false; // we let go of the key so we are not hitting anymore and this 
-        }                    // is used to alternate between moving the aim target and ourself
-
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            isHitting = true; // we are trying to hit the ball and aim where to make it land
-        }
-        else if (Input.GetKeyUp(KeyCode.RightArrow))
+        else if (Input.GetMouseButtonUp(0))
         {
             isHitting = false;
-        }
-
-
-        if (isHitting)  // if we are trying to hit the ball
-        {
-            aimTarget.Translate(new Vector3(h, 0, 0) * 5 * Time.deltaTime); //translate the aiming gameObject on the court horizontallly
         }
 
         if ((h != 0 || v != 0) && !isHitting) // if we want to move and we are not hitting the ball
@@ -54,13 +52,20 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Ball"))
+        if (other.CompareTag("Ball") && isHitting)
         {
-            Vector3 dir = aimTarget.position - transform.position; // get the direction to where we want to send the ball
-            other.GetComponent<Rigidbody>().velocity = dir.normalized * racketPower + new Vector3(0, 4, 0);
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast (ray, out hit)) {
+                // Find the direction to move in
+                Debug.DrawLine(transform.position, hit.point);
+                Vector3 dir = hit.point - transform.position;
+                other.GetComponent<Rigidbody>().velocity = dir.normalized * racketPower + new Vector3(0,ballHeight,0);
+            }
             //add force to the ball plus some upward force according to the shot being played
 
-            Vector3 ballDir = ball.position - transform.position; // get the direction of the ball compared to us to know if it is
+            Vector3 ballDir = aimTargetMouse - transform.position; // get the direction of the ball compared to us to know if it is
             if (ballDir.x >= 0)                                   // on out right or left side 
             {
                 //animator.Play("forehand");                        // play a forhand animation if the ball is on our right
@@ -70,7 +75,6 @@ public class PlayerController : MonoBehaviour
                 //animator.Play("backhand");
             }
 
-            aimTarget.position = aimTargetInitalPos; // reset the position of the aiming gameObject to it's original position ( center)
         }
     }
 }
