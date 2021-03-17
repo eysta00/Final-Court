@@ -6,6 +6,7 @@ public class BallBehaviour : MonoBehaviour
 {
     Vector3 initalPos;
 
+    public int damage = 25;
     // Initial pos of ball
     // Bounce effect on ball
     // Collision detection
@@ -23,5 +24,16 @@ public class BallBehaviour : MonoBehaviour
             transform.position = initalPos;
         }
         
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        
+        if(other.gameObject.tag == "Enemy")
+        {
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+            transform.position = initalPos;
+            other.GetComponent<EnemyHealth>().health -= damage;
+        }
     }
 }
