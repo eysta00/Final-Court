@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Player Stats")]
+    public int playerDamage = 15;
+    public float playerSpeed = 2000f;
+    [Space(10)]
+    [Header("Grab objects")]
     public Transform Target;
     public Rigidbody rb;
-    public float playerSpeed = 2000f;
+    public Transform ball; // The ball pos
+    [Space(10)]
+    [Header("Variables For determing the angle of ball")]
     public float racketPower  = 10f;
-
-    public int ballHeight = 50;
+    public int ballHeight = 7;
 
     WaitForSeconds myWait;
     bool isHitting;
     Vector3 aimTargetMouse = Vector3.one;
 
-    public Transform ball; // The ball pos
 
     void Start()
     {
@@ -27,7 +32,7 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast (ray, out hit)) {
                 // Find the direction to move in
-                Debug.DrawLine(transform.position, hit.point);
+                Debug.DrawLine(transform.position, hit.point, Color.black);
                 Target.position = hit.point;
             }
 
