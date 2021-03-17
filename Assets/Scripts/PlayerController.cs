@@ -6,15 +6,15 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Player Stats")]
     public int playerDamage = 15;
-    public float playerSpeed = 2000f;
-    [Space(10)]
+    public float playerSpeed = 5000f;
+        
     [Header("Grab objects")]
     public Transform Target;
     public Rigidbody rb;
     public Transform ball; // The ball pos
     [Space(10)]
     [Header("Variables For determing the angle of ball")]
-    public float racketPower  = 10f;
+    public float racketPower  = 12f;
     public int ballHeight = 7;
 
     WaitForSeconds myWait;
