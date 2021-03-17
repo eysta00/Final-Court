@@ -22,7 +22,7 @@ public class EnemyHealth : MonoBehaviour
 
         health = maxHealth;
         slider.value = CalculateHealth();
-        healthBarUI.SetActive(false);
+        healthBarUI.SetActive(true);
     }
 
     void Update()

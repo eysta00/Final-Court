@@ -10,6 +10,7 @@ public class BallBehaviour : MonoBehaviour
     // Initial pos of ball
     // Bounce effect on ball
     // Collision detection
+    public EnemyHealth enemyHealth;
 
     void Start()
     {
@@ -26,13 +27,13 @@ public class BallBehaviour : MonoBehaviour
         
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter(Collider other)
     {
         
         if(other.gameObject.tag == "Enemy")
         {
             GetComponent<Rigidbody>().velocity = Vector3.zero;
-            transform.position = initalPos;
+            // transform.position = initalPos;
             other.GetComponent<EnemyHealth>().health -= damage;
         }
     }
