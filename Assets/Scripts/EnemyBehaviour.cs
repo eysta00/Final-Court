@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyBehaviour : MonoBehaviour
 {
     public GameObject playerStats;
-    int health = 100;
+    int health = 2;
     Vector3 ballDir = new Vector3(0,7f,-6f);
     public float power = 5f;
     void OnTriggerEnter(Collider other)

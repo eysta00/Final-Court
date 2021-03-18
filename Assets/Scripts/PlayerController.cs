@@ -19,67 +19,117 @@ public class PlayerController : MonoBehaviour
 
     WaitForSeconds myWait;
     bool isHitting;
+    bool ballInRange;
     Vector3 aimTargetMouse = Vector3.one;
+
+    [Header("Charge Attack")]
+    public float m_powerMin = 5f;               // Lowest amount of power to fire with.
+     public float m_powerMax = 10f;              // Highest amount of power to fire with.
+     public float m_chargeDurationMax = 2f;      // Time at which auto-fire happens.
+     private float m_chargeDurationCurrent = 0f; // Time spent holding left mouse button down.
+     private bool m_isCharging = false;          // Currently charging?
+     private bool m_mouseWasReleased = true;
 
 
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
     }
-    void Update()
-    {
+
+    public Vector3 raycastOntoTheWorld() {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast (ray, out hit)) {
-                // Find the direction to move in
-                Debug.DrawLine(transform.position, hit.point, Color.black);
-                Target.position = hit.point;
+                return hit.point;
             }
+        else {
+            return Vector3.zero;
+        }
+
+    }
+    void Update()
+    {  
+
+        // Find the direction to move in
+        Target.position = raycastOntoTheWorld();
+            
 
         float h = Input.GetAxisRaw("Horizontal"); // Get horizontal axis of the keyboard (Might need to change if we need to use the arrow keys)
         float v = Input.GetAxisRaw("Vertical"); // Get vertical axis of the keyboard (Might need to change if we need to use the arrow keys)
-        if (Input.GetMouseButtonDown(0))
+        
+        
+        if (Input.GetMouseButtonDown(0) && m_mouseWasReleased )
         {
+            m_chargeDurationCurrent = 0f;
+            m_isCharging = true;
+            m_mouseWasReleased = false;
             isHitting = true;
-            // myWait = new WaitForSeconds(3000);
             
         }
-        else if (Input.GetMouseButtonUp(0))
+        else if (m_isCharging && (Input.GetMouseButtonUp(0) || m_chargeDurationCurrent >= m_chargeDurationMax))
         {
+            // Release or Auto-release.
+            float power = Mathf.Lerp( m_powerMin, m_powerMax, m_chargeDurationCurrent / m_chargeDurationMax );
+            if (ballInRange) {
+                Fire(power, ball.GetComponent<Rigidbody>());
+                ResetChargeTime();
+            }
             isHitting = false;
+
+            // My method.
+
         }
 
-        if ((h != 0 || v != 0) && !isHitting) // if we want to move and we are not hitting the ball
+        if (m_isCharging)
         {
-            rb.AddForce(new Vector3(h, 0, v) * playerSpeed * Time.deltaTime); // move on the court
+            m_chargeDurationCurrent += Time.deltaTime;
+        }
+
+        if(!m_mouseWasReleased)
+        {
+            m_mouseWasReleased = Input.GetMouseButtonUp(0);
+        }
+
+        if ((h != 0 || v != 0) && !isHitting) // if we want to move and we aren't trying to hit the ball.
+        {
+            rb.AddForce(new Vector3(h, 0, v) * playerSpeed * Time.deltaTime); // move the player on the court
+        }
+        else if ((h != 0 || v != 0) && isHitting){
+            rb.AddForce(new Vector3(h, 0, v) * playerSpeed * 1/4 * Time.deltaTime); // move the player on the court
         }
     }
+void Fire(float power, Rigidbody other) {
+    
+    Vector3 dir = raycastOntoTheWorld() - transform.position;
+    other.velocity = dir.normalized * power + new Vector3(0,ballHeight,0);
 
+    if (dir.x >= 0) // on out right or left side 
+    {
+                //animator.Play("forehand");                        // play a forhand animation if the ball is on our right
+    }
+    else                                                  // otherwise play a backhand animation 
+    {
+                //animator.Play("backhand");
+    }
+
+    }
+private void ResetChargeTime()
+    {
+    // Reset Current Duration.
+    m_chargeDurationCurrent = 0f;
+    m_isCharging = false;
+    }
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Ball") && isHitting)
+        if (other.CompareTag("Ball"))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast (ray, out hit)) {
-                // Find the direction to move in
-                Debug.DrawLine(transform.position, hit.point);
-                Vector3 dir = hit.point - transform.position;
-                other.GetComponent<Rigidbody>().velocity = dir.normalized * racketPower + new Vector3(0,ballHeight,0);
-            }
-            //add force to the ball plus some upward force according to the shot being played
-
-            Vector3 ballDir = aimTargetMouse - transform.position; // get the direction of the ball compared to us to know if it is
-            if (ballDir.x >= 0)                                   // on out right or left side 
-            {
-                //animator.Play("forehand");                        // play a forhand animation if the ball is on our right
-            }
-            else                                                  // otherwise play a backhand animation 
-            {
-                //animator.Play("backhand");
-            }
-
+            ballInRange = true;
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Ball")){
+            ballInRange = false;
         }
     }
 }
