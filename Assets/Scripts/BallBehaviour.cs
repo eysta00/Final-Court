@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class BallBehaviour : MonoBehaviour
 {
-    Vector3 initalPos;
+    //Vector3 initalPos;
     public Vector3 playArea;
 
+    public GameObject myPlayer;
+    private PlayerController PlayerController;
+    private Rigidbody rB;
+    public bool isServing;
     //public int damage = 25;
     // Initial pos of ball
     // Bounce effect on ball
@@ -15,7 +19,9 @@ public class BallBehaviour : MonoBehaviour
 
     void Start()
     {
-        initalPos = transform.position; // Get the inital pos (Need to actually teleport to the player. Not IntialPos)
+        //initalPos = myPlayer.transform.position; // Get the inital pos (Need to actually teleport to the player. Not IntialPos)
+        PlayerController = myPlayer.GetComponent<PlayerController>();
+        rB = GetComponent<Rigidbody>();
     }
     public bool isBallInPlayArea() {
         if ((transform.position.x<playArea.x && transform.position.x>-playArea.x) 
@@ -28,18 +34,11 @@ public class BallBehaviour : MonoBehaviour
     void Update()
     {
         if (!isBallInPlayArea()) {
-            GetComponent<Rigidbody>().velocity = Vector3.zero;
-            transform.position = initalPos;
+
+            PlayerController.isServing = true;
+            PlayerController.currBall = this.gameObject;
+            this.enabled = false;
         }
-    }
-    void OnCollisionEnter(Collision collision)
-    {  
-        if (collision.transform.CompareTag("Wall"))
-        {
-            GetComponent<Rigidbody>().velocity = Vector3.zero;
-            transform.position = initalPos;
-        }
-        
     }
 
     // void OnTriggerEnter(Collider other)

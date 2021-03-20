@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2483120737260952542}
   - component: {fileID: 2483120737260952543}
+  - component: {fileID: 1912924099}
+  - component: {fileID: 1912924100}
   m_Layer: 0
   m_Name: Racket
   m_TagString: Untagged
@@ -82,6 +84,31 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &1912924099
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2483120737260952545}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 2, z: 1.5}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1912924100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2483120737260952545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d47e2f79bf267a047b510b7194eb9fb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2483120739194257381
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,9 +122,8 @@ GameObject:
   - component: {fileID: 2483120739194257376}
   - component: {fileID: 2483120739194257378}
   - component: {fileID: 729526561}
-  - component: {fileID: 4525172087701746525}
   - component: {fileID: 729526562}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,11 +208,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerDamage: 15
   playerSpeed: 5000
+  isServing: 0
   Target: {fileID: 0}
   rb: {fileID: 729526561}
   ball: {fileID: 0}
+  currBall: {fileID: 0}
   racketPower: 12
   ballHeight: 7
+  isHitting: 0
+  ballInRange: 0
+  m_powerMin: 5
+  m_powerMax: 10
+  m_chargeDurationMax: 2
 --- !u!54 &729526561
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -203,19 +236,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!65 &4525172087701746525
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2483120739194257381}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4, y: 4, z: 1.5}
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!136 &729526562
 CapsuleCollider:
   m_ObjectHideFlags: 0
