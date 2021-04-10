@@ -9,6 +9,7 @@ public class highscore : MonoBehaviour
 
     public Text score;
     //public GameObject txt;
+    public BallBehaviour ball;
 
     int curr_score = 0;
 
@@ -20,7 +21,7 @@ public class highscore : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        score.text = "Score: " + curr_score.ToString();
+        score.text = "Score: " + ball.GetComponent<BallBehaviour>().total_score.ToString();
         //score.text = "Score: " + curr_score.ToString();
         //txt.GetComponent<Text>().text = score.text;
     }
