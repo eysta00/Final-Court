@@ -41,14 +41,14 @@ public class BallBehaviour : MonoBehaviour
         }
     }
 
-    // void OnTriggerEnter(Collider other)
-    // {
+    void OnTriggerEnter(Collider other)
+    {
         
-    //     if(other.gameObject.tag == "Enemy")
-    //     {
-    //         GetComponent<Rigidbody>().velocity = Vector3.zero;
-    //         // transform.position = initalPos;
-    //         other.GetComponent<EnemyHealth>().health -= damage;
-    //     }
-    // }
+        if(other.gameObject.tag == "Enemy")
+        {
+            //GetComponent<Rigidbody>().velocity = Vector3.zero;
+            // transform.position = initalPos;
+            other.GetComponent<EnemyHealth>().health -= 34;
+        }
+    }
 }
