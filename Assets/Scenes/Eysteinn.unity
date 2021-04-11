@@ -2523,10 +2523,6 @@ PrefabInstance:
       propertyPath: AimTarget
       value: 
       objectReference: {fileID: 922540140}
-    - target: {fileID: 2483120737260952542, guid: 3db86020353ea1641b70852e582256ec, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 2483120739194257374, guid: 3db86020353ea1641b70852e582256ec, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -2584,11 +2580,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 922540140}
     - target: {fileID: 8345090811387012883, guid: 3db86020353ea1641b70852e582256ec, type: 3}
+      propertyPath: racket
+      value: 
+      objectReference: {fileID: 2483120738512375551}
+    - target: {fileID: 8345090811387012883, guid: 3db86020353ea1641b70852e582256ec, type: 3}
       propertyPath: currBall
       value: 
       objectReference: {fileID: 1112987108}
+    - target: {fileID: 8345090811387012883, guid: 3db86020353ea1641b70852e582256ec, type: 3}
+      propertyPath: racketSprite
+      value: 
+      objectReference: {fileID: 2483120738512375552}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3db86020353ea1641b70852e582256ec, type: 3}
+--- !u!4 &2483120738512375551 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2483120737260952542, guid: 3db86020353ea1641b70852e582256ec, type: 3}
+  m_PrefabInstance: {fileID: 2483120738512375550}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &2483120738512375552 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2483120737260952543, guid: 3db86020353ea1641b70852e582256ec, type: 3}
+  m_PrefabInstance: {fileID: 2483120738512375550}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3644478985193062583
 PrefabInstance:
   m_ObjectHideFlags: 0
