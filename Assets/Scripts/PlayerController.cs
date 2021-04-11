@@ -15,6 +15,10 @@ public class PlayerController : MonoBehaviour
     public Transform ball; // The ball pos
     public GameObject currBall;
     private BallBehaviour BallBehaviour;
+    public Transform racket;
+
+    public SpriteRenderer racketSprite;
+
 
     [Space(10)]
     [Header("Variables For determing the angle of ball")]
@@ -34,9 +38,6 @@ public class PlayerController : MonoBehaviour
      private float m_chargeDurationCurrent = 0f; // Time spent holding left mouse button down.
      private bool m_isCharging = false;          // Currently charging?
      private bool m_mouseWasReleased = true;
-
-     
-
 
     void Start()
     {
@@ -70,7 +71,6 @@ public class PlayerController : MonoBehaviour
 
         float h = Input.GetAxisRaw("Horizontal"); // Get horizontal axis of the keyboard (Might need to change if we need to use the arrow keys)
         float v = Input.GetAxisRaw("Vertical"); // Get vertical axis of the keyboard (Might need to change if we need to use the arrow keys)
-        
         
         if (Input.GetMouseButtonDown(0) && m_mouseWasReleased )
         {
@@ -119,11 +119,17 @@ public class PlayerController : MonoBehaviour
         other.velocity = dir.normalized * power + new Vector3(0,ballHeight,0);
 
         if (dir.x >= 0) // on out right or left side 
-        {
+        {   
+            Vector3 newPos = transform.position + new Vector3(1.4f, 0.5f, 0);
+            racket.position = newPos;
+            racketSprite.flipY = false;
                     //animator.Play("forehand");                        // play a forhand animation if the ball is on our right
         }
         else                                                  // otherwise play a backhand animation 
         {
+            Vector3 newPos = transform.position + new Vector3(-1.4f, 0.5f, 0);
+            racket.position = newPos;
+            racketSprite.flipY = true;
                     //animator.Play("backhand");
         }
 
