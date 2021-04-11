@@ -77,7 +77,7 @@ public class BallBehaviour : MonoBehaviour
             EnemySideBounce = 0;
             //GetComponent<Rigidbody>().velocity = Vector3.zero;
             //transform.position = initalPos;
-            other.GetComponent<EnemyHealth>().health -= 34;
+            other.GetComponent<EnemyHealth>().health -= 100;
             total_score += combo * enemyHitScore;
             if(combo < 2) { combo += 0.5f; }
             else if(combo < 3) { combo += 0.25f; }
