@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Eysteinn.unity
     guid: c4f11223d6573be418b54a156c1ef68d
+  - enabled: 1
+    path: Assets/Scenes/Lev_option2.unity
+    guid: 332f3a28a31ae9d42a4cac68047e7649
   m_configObjects: {}
