@@ -33,11 +33,14 @@ public class PlayerController : MonoBehaviour
 
     [Header("Charge Attack")]
     public float m_powerMin = 5f;               // Lowest amount of power to fire with.
-     public float m_powerMax = 10f;              // Highest amount of power to fire with.
-     public float m_chargeDurationMax = 2f;      // Time at which auto-fire happens.
-     private float m_chargeDurationCurrent = 0f; // Time spent holding left mouse button down.
-     private bool m_isCharging = false;          // Currently charging?
-     private bool m_mouseWasReleased = true;
+    public float m_powerMax = 10f;              // Highest amount of power to fire with.
+    public float m_chargeDurationMax = 2f;      // Time at which auto-fire happens.
+    private float m_chargeDurationCurrent = 0f; // Time spent holding left mouse button down.
+    private bool m_isCharging = false;          // Currently charging?
+    private bool m_mouseWasReleased = true;
+
+     
+    public string next_level = "None";
 
     void Start()
     {
@@ -139,5 +142,10 @@ public class PlayerController : MonoBehaviour
         // Reset Current Duration.
         m_chargeDurationCurrent = 0f;
         m_isCharging = false;
-        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        next_level = other.gameObject.tag;
+    }
 }

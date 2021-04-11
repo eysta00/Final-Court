@@ -10,6 +10,8 @@ TagManager:
   - Enemy
   - EnemySide
   - PlayerSide
+  - Lev_option2
+  - Lev_option1
   layers:
   - Default
   - TransparentFX
