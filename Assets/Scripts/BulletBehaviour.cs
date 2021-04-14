@@ -31,6 +31,9 @@ public class BulletBehaviour : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(myEnemy == null) {
+            Destroy(gameObject);
+        }
         if(fireIn <= 0){
             Vector3 new_pos = myEnemy.transform.position;
             new_pos.z-=0.5f;
