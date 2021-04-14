@@ -12,6 +12,7 @@ TagManager:
   - PlayerSide
   - Lev_option2
   - Lev_option1
+  - HealthRegEnemy
   layers:
   - Default
   - TransparentFX

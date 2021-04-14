@@ -10,6 +10,7 @@ public class EnemyHealth : MonoBehaviour
     private float maxHealth;
     public GameObject healthBarUI;
     public Slider slider;
+    public float health_reg;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,10 @@ public class EnemyHealth : MonoBehaviour
         {
             maxHealth = 100;
         }
-
+        if (gameObject.tag == "HealthRegEnemy")
+        {
+            maxHealth = 100;
+        }
         health = maxHealth;
         slider.value = CalculateHealth();
         healthBarUI.SetActive(true);
@@ -43,6 +47,18 @@ public class EnemyHealth : MonoBehaviour
             health = maxHealth;
         }
     }
+
+    void FixedUpdate()
+    {
+        //Debug.Log(health);
+        if(health + health_reg > maxHealth) {
+            health = maxHealth;
+        }
+        else {
+            health += health_reg;
+        }
+    }
+
     float CalculateHealth()
     {
         return health / maxHealth;

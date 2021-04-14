@@ -77,7 +77,22 @@ public class BallBehaviour : MonoBehaviour
             EnemySideBounce = 0;
             //GetComponent<Rigidbody>().velocity = Vector3.zero;
             //transform.position = initalPos;
-            other.GetComponent<EnemyHealth>().health -= 100;
+            other.GetComponent<EnemyHealth>().health -= 34;
+            total_score += combo * enemyHitScore;
+            if(combo < 2) { combo += 0.5f; }
+            else if(combo < 3) { combo += 0.25f; }
+            else if(combo < 4) { combo += 0.2f; }
+            else if(combo < 5) { combo += 0.1f; } // Max verður 5
+        }
+
+        if(other.gameObject.tag == "HealthRegEnemy")
+        {
+            EnemySideBounce = 0;
+            //GetComponent<Rigidbody>().velocity = Vector3.zero;
+            //transform.position = initalPos;
+            Debug.Log(other.GetComponent<EnemyHealth>().health);
+            other.GetComponent<EnemyHealth>().health -= 50;
+            Debug.Log(other.GetComponent<EnemyHealth>().health);
             total_score += combo * enemyHitScore;
             if(combo < 2) { combo += 0.5f; }
             else if(combo < 3) { combo += 0.25f; }
