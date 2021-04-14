@@ -16,13 +16,16 @@ EditorBuildSettings:
     guid: 531bf0184afebb04aa891c4bfd305b81
   - enabled: 1
     path: Assets/Scenes/Lev_option1.unity
-    guid: acb94fd9a27b8824cb10e9e1172d95b4
+    guid: 8152e7cd05d40f6499abf25fb1649dca
   - enabled: 1
     path: Assets/Scenes/Lev_option2.unity
     guid: 153ecd399bfc5914e8c2720803e0c61d
   - enabled: 1
     path: Assets/Scenes/Lev_option3.unity
     guid: 34f5ec148450e9d46a5a7c5946bfc81c
+  - enabled: 1
+    path: Assets/Scenes/FinalBoss.unity
+    guid: acb94fd9a27b8824cb10e9e1172d95b4
   - enabled: 1
     path: Assets/Scenes/DeathMenu.unity
     guid: 3f3e0736b02be9f4da42e0b887d26e61

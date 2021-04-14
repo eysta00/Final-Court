@@ -17,6 +17,7 @@ TagManager:
   - dmg
   - Level2
   - Lev_option3
+  - FinalBoss
   layers:
   - Default
   - TransparentFX
