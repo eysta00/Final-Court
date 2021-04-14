@@ -4,27 +4,38 @@ using UnityEngine;
 
 public class MolotovBehaviour : MonoBehaviour
 {
-    // Start is called before the first frame update
 
     Vector3 ballDir = new Vector3(0,7f,-6f);
     public float power = 5f;
+
+    public GameObject dmgZone; // damage zone
+    public Vector3 whereToSpawn;
+    //public Molotov enemyLoc;
+
     void Start()
     {
         ballDir.x = Random.Range(-2f,2f);
         GetComponent<Rigidbody>().velocity = ballDir.normalized * power;
     }
 
-    // Update is called once per frame
+    void FixedUpdate()
+    {
+        whereToSpawn = GetComponent<Rigidbody>().transform.position;
+
+    }
+
     void Update()
     {
-        // ballDir.x = Random.Range(-2f,2f);
-        // GetComponent<Rigidbody>().velocity = ballDir.normalized * power;
+
     }
 
     void OnTriggerEnter(Collider other)
     {
-        //if(other.gameObject.tag == "PlayerSide") {
-
-        //}
+        if(other.gameObject.tag == "PlayerSide") {
+            Destroy(gameObject);
+            whereToSpawn = GetComponent<Rigidbody>().transform.position;
+            whereToSpawn.y = 0.01f;
+            Instantiate(dmgZone, whereToSpawn, Quaternion.identity);
+        }
     }
 }
