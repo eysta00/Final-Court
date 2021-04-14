@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public float playerSpeed = 5000f;
     public bool isServing;
     public int Health = 10;
+    float dmg_taken_cd = 5;
         
     [Header("Grab objects")]
     public Transform Target;
@@ -123,6 +124,12 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(new Vector3(h, 0, v) * playerSpeed * Time.deltaTime); // move the player on the court
         }
     }
+
+    void FixedUpdate()
+    {
+        dmg_taken_cd -= Time.deltaTime;
+    }
+
     void Fire(float power, Rigidbody other) {
     
         Vector3 dir = raycastOntoTheWorld() - transform.position;
@@ -159,5 +166,10 @@ public class PlayerController : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         next_level = other.gameObject.tag;
+
+        if(dmg_taken_cd < 0 && other.gameObject.tag == "dmg") {
+            dmg_taken_cd = 5;
+            Health -= 1;
+        }
     }
 }
