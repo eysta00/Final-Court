@@ -23,6 +23,8 @@ public class MolotovBehaviour : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        
+        //if(other.gameObject.tag == "PlayerSide") {
+
+        //}
     }
 }
