@@ -19,6 +19,7 @@ namespace FinalCourt
         public float endScreenDelay = 1.0f;
         public float endScreenTime = 1.0f;
         public string endScreen;
+        public bool isFinalLevel;
 
     // Start is called before the first frame update
         void Start()
@@ -37,6 +38,9 @@ namespace FinalCourt
             if(level.Health <= 0) {
                 SceneManager.LoadScene(gameOverScreen);
             }
+            if (isFinalLevel && done.GetComponent<levelCompleted>().completed == true) {
+                SceneManager.LoadScene(endScreen);
+            }
         }
 
         IEnumerator LevelCompleted()
@@ -45,7 +49,7 @@ namespace FinalCourt
 
             yield return new WaitForSeconds(endScreenDelay);
 
-            //endScreen.SetActive(true);
+            
 
             yield return new WaitForSeconds(endScreenTime);
 

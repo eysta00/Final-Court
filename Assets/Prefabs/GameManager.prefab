@@ -51,4 +51,4 @@ MonoBehaviour:
   startScreenTime: 1
   endScreenDelay: 1
   endScreenTime: 1
-  endScreen: 
+  endScreen: WinMenu
