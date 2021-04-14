@@ -15,7 +15,7 @@ public class Molotov : MonoBehaviour
 
     void Start()
     {
-        cooldown = initial_cooldown + Random.Range(0,5);
+        cooldown = initial_cooldown + Random.Range(-3,3);
     }
 
     // Update is called once per frame
@@ -28,7 +28,7 @@ public class Molotov : MonoBehaviour
     {
         cooldown -= Time.deltaTime;
         if(cooldown < 0.0f) {
-            cooldown += initial_cooldown + Random.Range(5,10);
+            cooldown += initial_cooldown + Random.Range(3,8);
             whereToSpawn = enemyLoc.GetComponent<EnemyBehaviour>().transform.position;
             Instantiate(Molo, whereToSpawn, Quaternion.identity);
         }
