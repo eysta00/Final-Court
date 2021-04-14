@@ -276,6 +276,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62a040abf2a176d4e9d31f30fe27d256, type: 3}
+--- !u!82 &369715867 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7275025824214257608, guid: 62a040abf2a176d4e9d31f30fe27d256, type: 3}
+  m_PrefabInstance: {fileID: 369715866}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &371366696 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 424744943329084179, guid: 87c89bfb2ecb27743b081ffb037a159d, type: 3}
@@ -2321,6 +2326,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8345090811387012883, guid: 3db86020353ea1641b70852e582256ec, type: 3}
+      propertyPath: Ooof
+      value: 
+      objectReference: {fileID: 369715867}
     - target: {fileID: 8345090811387012883, guid: 3db86020353ea1641b70852e582256ec, type: 3}
       propertyPath: ball
       value: 

@@ -1,0 +1,17 @@
+Attribution Document
+
+We created every resource in the game, art, code, assets and sound effects.
+
+
+What we used to create them:
+
+Asesprite for textures and sprites
+Blender 2.9 for 3d models
+Bosca ceoil for sound effects
+Audacity to edit sounds and make sounds
+
+
+	Unity plugins:
+
+	Progrids and Probuilder for 3d objects and stuff
+

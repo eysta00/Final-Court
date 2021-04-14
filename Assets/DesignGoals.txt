@@ -1,0 +1,21 @@
+Statement of Design Goals
+
+Design goals:
+When we set out these were the Aestethics we wanted:
+
+	Astetics:
+	Challenge
+	Discovery
+
+As time went on we realised that our original idea was a bit out of scope. 
+Therefore we decided to mostly work on the challenge part of the game. 
+Our goal was to create an entertaining but challenging game and we believe that we have achived that.
+We wanted our players to travel from court to court and discover new things, 
+new enemies, loot and treasures but that was way out of scope but we did what we could.
+
+
+Experimental features:
+
+Blender - We used blender for the first time.
+Pixel art í 3d - We created pixel art in 3d, even though we had done it in 2d, it was different in 3d.
+2.5 leikur - We created a 2.5 game.
