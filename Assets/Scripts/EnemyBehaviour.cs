@@ -10,13 +10,13 @@ public class EnemyBehaviour : MonoBehaviour
 
     public float dir = 0;
     float step;
-    public float speed = 1.5f;
+    public float speed = 0.1f;
     float curr_x_pos;
     float curr_y_pos;
 
     void Start() 
     {
-        step = speed * Time.deltaTime;
+        step = speed;
         dir = step;
         curr_x_pos = transform.position.x;
     }

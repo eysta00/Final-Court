@@ -113,6 +113,7 @@ MonoBehaviour:
   power: 10
   dmgZone: {fileID: 2088727998503725553, guid: 6a9ba0d0054d80143a57e7a7a9f37530, type: 3}
   whereToSpawn: {x: 0, y: 0, z: 0}
+  player: {fileID: 2483120739194257374, guid: 3db86020353ea1641b70852e582256ec, type: 3}
 --- !u!54 &4832212108623868479
 Rigidbody:
   m_ObjectHideFlags: 0
