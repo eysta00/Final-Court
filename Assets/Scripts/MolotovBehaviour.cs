@@ -20,4 +20,9 @@ public class MolotovBehaviour : MonoBehaviour
         // ballDir.x = Random.Range(-2f,2f);
         // GetComponent<Rigidbody>().velocity = ballDir.normalized * power;
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        
+    }
 }

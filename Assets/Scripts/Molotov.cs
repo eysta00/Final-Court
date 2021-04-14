@@ -32,6 +32,5 @@ public class Molotov : MonoBehaviour
             whereToSpawn = enemyLoc.GetComponent<EnemyBehaviour>().transform.position;
             Instantiate(Molo, whereToSpawn, Quaternion.identity);
         }
-        
     }
 }
