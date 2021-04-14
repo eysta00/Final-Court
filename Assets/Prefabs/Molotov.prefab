@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4832212108623868452}
   - component: {fileID: 4832212108623868472}
   - component: {fileID: 4832212108623868479}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Molotov
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 4832212110654934850}
   - component: {fileID: 4832212110654934851}
   - component: {fileID: 4832212110654934860}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: particleSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}

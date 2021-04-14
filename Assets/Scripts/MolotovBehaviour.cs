@@ -13,26 +13,28 @@ public class MolotovBehaviour : MonoBehaviour
     //public Molotov enemyLoc;
 
     [Header("Put the player and enemy here")]
-    public Transform player;
+    Transform player;
 
-    void Start()
+    void Awake()
     {
-
-        ballDir = player.position;
-        GetComponent<Rigidbody>().velocity = (ballDir + new Vector3(0,5,0));
+        
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        // Random.Range(-3f,3f)
+        //GetComponent<Rigidbody>().velocity = (ballDir + new Vector3(0,5,0) * 0.5f);
+        ballDir = player.position - transform.position;
+        GetComponent<Rigidbody>().velocity = (ballDir + new Vector3(0,5,0) * 0.5f);
     }
 
     void Update()
     {
-        whereToSpawn = GetComponent<Rigidbody>().transform.position;
-
+        whereToSpawn = transform.position;
     }
 
     void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "PlayerSide") {
             Destroy(gameObject);
-            whereToSpawn = GetComponent<Rigidbody>().transform.position;
+            whereToSpawn = transform.position;
             whereToSpawn.y = 0.01f;
             Instantiate(dmgZone, whereToSpawn, Quaternion.identity);
         }
