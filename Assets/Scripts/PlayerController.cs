@@ -60,6 +60,7 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {  
+
         if (Input.GetMouseButtonDown(0) && isServing) {
             currBall.transform.position = this.transform.position;
             BallBehaviour = currBall.GetComponent<BallBehaviour>();
@@ -74,6 +75,8 @@ public class PlayerController : MonoBehaviour
 
         float h = Input.GetAxisRaw("Horizontal"); // Get horizontal axis of the keyboard (Might need to change if we need to use the arrow keys)
         float v = Input.GetAxisRaw("Vertical"); // Get vertical axis of the keyboard (Might need to change if we need to use the arrow keys)
+
+        RacketSideTransform();
         
         if (Input.GetMouseButtonDown(0) && m_mouseWasReleased )
         {
@@ -121,7 +124,10 @@ public class PlayerController : MonoBehaviour
         Vector3 dir = raycastOntoTheWorld() - transform.position;
         other.velocity = dir.normalized * power + new Vector3(0,ballHeight,0);
 
-        if (dir.x >= 0) // on out right or left side 
+    }
+
+    void RacketSideTransform() {
+        if (ball.position.x > transform.position.x) // on out right or left side 
         {   
             Vector3 newPos = transform.position + new Vector3(1.4f, 0.5f, 0);
             racket.position = newPos;
@@ -135,7 +141,6 @@ public class PlayerController : MonoBehaviour
             racketSprite.flipY = true;
                     //animator.Play("backhand");
         }
-
     }
     private void ResetChargeTime()
     {
