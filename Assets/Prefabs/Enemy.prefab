@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 191340783}
   - component: {fileID: 191340786}
   - component: {fileID: 191340787}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -238,6 +238,7 @@ MonoBehaviour:
   health: 0
   healthBarUI: {fileID: 4382640753438811459}
   slider: {fileID: 4382640754269373523}
+  health_reg: 0
 --- !u!54 &191340783
 Rigidbody:
   m_ObjectHideFlags: 0

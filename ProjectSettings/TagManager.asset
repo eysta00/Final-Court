@@ -13,6 +13,7 @@ TagManager:
   - Lev_option2
   - Lev_option1
   - HealthRegEnemy
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -22,8 +23,8 @@ TagManager:
   - UI
   - Player
   - Ball
-  - 
-  - 
+  - Bullet
+  - Enemy
   - 
   - 
   - 
