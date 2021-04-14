@@ -12,13 +12,13 @@ namespace FinalCourt
         public levelCompleted done;
         public string nextLevel;
         public PlayerController level;
-        public GameObject gameOverScreen;
+        public string gameOverScreen;
         public bool isGameComplete;
 
         public float startScreenTime = 1.0f;
         public float endScreenDelay = 1.0f;
         public float endScreenTime = 1.0f;
-        public GameObject endScreen;
+        public string endScreen;
 
     // Start is called before the first frame update
         void Start()
@@ -34,6 +34,9 @@ namespace FinalCourt
                 StartCoroutine(LevelCompleted());
                 //StartCoroutine(LevelCompleted());
             }
+            if(level.Health <= 0) {
+                SceneManager.LoadScene(gameOverScreen);
+            }
         }
 
         IEnumerator LevelCompleted()
@@ -46,15 +49,20 @@ namespace FinalCourt
 
             yield return new WaitForSeconds(endScreenTime);
 
-            if (!string.IsNullOrEmpty(nextLevel))
+            if (nextLevel == "EnemySide" || nextLevel == "PlayerSide" || nextLevel == "Wall" || nextLevel == "Untagged" || nextLevel == "Ball") {
+                // Nothing happens
+            }
+
+            else if (!string.IsNullOrEmpty(nextLevel))
             {
                 SceneManager.LoadScene(nextLevel);
             }
-            
+
             else
             {
                 isGameComplete = true;
-                gameOverScreen.SetActive(true);
+                SceneManager.LoadScene(gameOverScreen);
+                //gameOverScreen.SetActive(true);
             }
         }
     }

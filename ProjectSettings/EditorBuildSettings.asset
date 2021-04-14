@@ -9,12 +9,21 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 7b5697a250894534aa642b2162b46cdb
   - enabled: 1
-    path: Assets/Scenes/Eysteinn.unity
-    guid: c4f11223d6573be418b54a156c1ef68d
+    path: Assets/Scenes/Level1.unity
+    guid: fed14466f63d7bc47bef2875323cc890
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 531bf0184afebb04aa891c4bfd305b81
   - enabled: 1
     path: Assets/Scenes/Lev_option1.unity
-    guid: 332f3a28a31ae9d42a4cac68047e7649
+    guid: acb94fd9a27b8824cb10e9e1172d95b4
   - enabled: 1
     path: Assets/Scenes/Lev_option2.unity
-    guid: 222a2f637eb00b14da83f8cc47c6a07f
+    guid: 153ecd399bfc5914e8c2720803e0c61d
+  - enabled: 1
+    path: Assets/Scenes/Lev_option3.unity
+    guid: 34f5ec148450e9d46a5a7c5946bfc81c
+  - enabled: 1
+    path: Assets/Scenes/DeathMenu.unity
+    guid: 3f3e0736b02be9f4da42e0b887d26e61
   m_configObjects: {}
