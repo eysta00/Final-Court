@@ -170,7 +170,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 122326563}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e87dc66a456590247881339654083d88, type: 3}
+  m_Script: {fileID: 11500000, guid: 5437cd72abea9224fb3ea6b2a9921e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &371044897
@@ -257,8 +257,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 150
-  m_fontSizeBase: 150
+  m_fontSize: 100
+  m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -618,8 +618,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 150
-  m_fontSizeBase: 150
+  m_fontSize: 100
+  m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1030,8 +1030,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.3664722}
   m_AnchorMax: {x: 0.5, y: 0.3664722}
-  m_AnchoredPosition: {x: -5.256592, y: -53.130676}
-  m_SizeDelta: {x: 500, y: 300}
+  m_AnchoredPosition: {x: -5.256592, y: 86.7}
+  m_SizeDelta: {x: 300, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1864693121
 MonoBehaviour:
@@ -1078,7 +1078,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 122326565}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_TargetAssemblyTypeName: DeathMenu, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
@@ -1164,7 +1164,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.60152775}
   m_AnchorMax: {x: 0.5, y: 0.60152775}
   m_AnchoredPosition: {x: -5.256592, y: 89.92279}
-  m_SizeDelta: {x: 550, y: 300}
+  m_SizeDelta: {x: 350, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1949709174
 MonoBehaviour:
@@ -1211,8 +1211,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 122326565}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: PlayGame
+        m_TargetAssemblyTypeName: DeathMenu, Assembly-CSharp
+        m_MethodName: RestartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
