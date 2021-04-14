@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public int playerDamage = 15;
     public float playerSpeed = 5000f;
     public bool isServing;
+    public int Health = 10;
         
     [Header("Grab objects")]
     public Transform Target;
@@ -21,6 +22,8 @@ public class PlayerController : MonoBehaviour
 
 
     [Space(10)]
+    [Header ("Sound Effects")]
+    public AudioSource TennisHit;
     [Header("Variables For determing the angle of ball")]
     public float racketPower  = 12f;
     public int ballHeight = 7;
@@ -92,6 +95,7 @@ public class PlayerController : MonoBehaviour
             if (ballInRange) {
                 float power = Mathf.Lerp( m_powerMin, m_powerMax, m_chargeDurationCurrent / m_chargeDurationMax );
                 Fire(power, ball.GetComponent<Rigidbody>());
+                TennisHit.Play();
             }
             ResetChargeTime();
             isHitting = false;
@@ -127,14 +131,17 @@ public class PlayerController : MonoBehaviour
     }
 
     void RacketSideTransform() {
-        if (ball.position.x > transform.position.x) // on out right or left side 
+
+        float xDelta = ball.position.x - transform.position.x;
+
+        if (xDelta > 0 && Mathf.Abs(xDelta) > 1) // on out right or left side 
         {   
             Vector3 newPos = transform.position + new Vector3(1.4f, 0.5f, 0);
             racket.position = newPos;
             racketSprite.flipY = false;
                     //animator.Play("forehand");                        // play a forhand animation if the ball is on our right
         }
-        else                                                  // otherwise play a backhand animation 
+        else if (xDelta < 0 && Mathf.Abs(xDelta) > 1)                                                  // otherwise play a backhand animation 
         {
             Vector3 newPos = transform.position + new Vector3(-1.4f, 0.5f, 0);
             racket.position = newPos;
