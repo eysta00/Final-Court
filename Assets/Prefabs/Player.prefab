@@ -172,12 +172,14 @@ MonoBehaviour:
   playerDamage: 15
   playerSpeed: 5000
   isServing: 0
+  Health: 10
   Target: {fileID: 0}
   rb: {fileID: 5083233759063685497}
   ball: {fileID: 0}
   currBall: {fileID: 0}
-  racket: {fileID: 0}
-  racketSprite: {fileID: 0}
+  racket: {fileID: 2483120737260952542}
+  racketSprite: {fileID: 2483120737260952543}
+  TennisHit: {fileID: 0}
   racketPower: 12
   ballHeight: 7
   isHitting: 0
@@ -380,6 +382,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 9a7a24fca63177345ae17b862167a015, type: 3}
       propertyPath: m_Name
       value: tennisCharacter
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9a7a24fca63177345ae17b862167a015, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9a7a24fca63177345ae17b862167a015, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8879528566716807029, guid: 9a7a24fca63177345ae17b862167a015, type: 3}
       propertyPath: m_LocalPosition.x
