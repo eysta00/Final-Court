@@ -90,9 +90,9 @@ public class BallBehaviour : MonoBehaviour
             EnemySideBounce = 0;
             //GetComponent<Rigidbody>().velocity = Vector3.zero;
             //transform.position = initalPos;
-            Debug.Log(other.GetComponent<EnemyHealth>().health);
+            //Debug.Log(other.GetComponent<EnemyHealth>().health);
             other.GetComponent<EnemyHealth>().health -= 50;
-            Debug.Log(other.GetComponent<EnemyHealth>().health);
+            //Debug.Log(other.GetComponent<EnemyHealth>().health);
             total_score += combo * enemyHitScore;
             if(combo < 2) { combo += 0.5f; }
             else if(combo < 3) { combo += 0.25f; }
