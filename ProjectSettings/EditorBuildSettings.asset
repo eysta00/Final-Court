@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 7b5697a250894534aa642b2162b46cdb
+  - enabled: 1
     path: Assets/Scenes/Eysteinn.unity
     guid: c4f11223d6573be418b54a156c1ef68d
   - enabled: 1
