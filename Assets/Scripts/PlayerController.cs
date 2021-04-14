@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     [Space(10)]
     [Header ("Sound Effects")]
     public AudioSource TennisHit;
+    public AudioSource Ooof;
     [Header("Variables For determing the angle of ball")]
     public float racketPower  = 12f;
     public int ballHeight = 7;
@@ -170,6 +171,7 @@ public class PlayerController : MonoBehaviour
         if(dmg_taken_cd < 0 && other.gameObject.tag == "dmg") {
             dmg_taken_cd = 5;
             Health -= 1;
+            Ooof.Play();
         }
     }
 }
